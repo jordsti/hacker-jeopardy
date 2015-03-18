@@ -1,0 +1,137 @@
+category:Blabla
+  question:How to do this?
+  answer:that way
+  rank:0
+  
+  question:How to do this?
+  answer:that way
+  rank:0
+  
+  question:How to do this?
+  answer:that way
+  rank:0
+  
+  question:How to do this?
+  answer:that way
+  rank:0
+  
+  question:How to do this?
+  answer:that way
+  rank:1
+  
+  question:How to do this?
+  answer:that way
+  rank:1
+  
+  question:How to do this?
+  answer:that way
+  rank:1
+  
+  question:How to do this?
+  answer:that way
+  rank:2
+  
+  question:How to do this?
+  answer:that way
+  rank:2
+  
+  question:How to do this?
+  answer:that way
+  rank:2
+  
+  question:How to do this?
+  answer:that way
+  rank:2
+  
+  question:How to do this?
+  answer:that way
+  rank:2
+    
+  question:How to do this?
+  answer:that way
+  rank:3
+  
+  question:How to do this?
+  answer:that way
+  rank:3
+  
+  question:How to do this?
+  answer:that way
+  rank:3
+  
+  question:How to do this?
+  answer:that way
+  rank:3
+  
+  question:How to do this?
+  answer:that way
+  rank:3
+  
+category:RJ45
+  question:How to do this?
+  answer:that way
+  rank:0
+  
+  question:How to do this?
+  answer:that way
+  rank:0
+  
+  question:How to do this?
+  answer:that way
+  rank:0
+  
+  question:How to do this?
+  answer:that way
+  rank:0
+  
+  question:How to do this?
+  answer:that way
+  rank:1
+  
+  question:How to do this?
+  answer:that way
+  rank:1
+  
+  question:How to do this?
+  answer:that way
+  rank:1
+  
+  question:How to do this?
+  answer:that way
+  rank:2
+  
+  question:How to do this?
+  answer:that way
+  rank:2
+  
+  question:How to do this?
+  answer:that way
+  rank:2
+  
+  question:How to do this?
+  answer:that way
+  rank:2
+  
+  question:How to do this?
+  answer:that way
+  rank:2
+    
+  question:How to do this?
+  answer:that way
+  rank:3
+  
+  question:How to do this?
+  answer:that way
+  rank:3
+  
+  question:How to do this?
+  answer:that way
+  rank:3
+  
+  question:How to do this?
+  answer:that way
+  rank:3
+  
+  question:How to do this?
+  answer:that way
+  rank:3
