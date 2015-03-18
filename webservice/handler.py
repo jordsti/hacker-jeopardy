@@ -31,6 +31,7 @@ class service_handler(BaseHTTPServer.BaseHTTPRequestHandler):
         for f in self.server.functions:
             if path == f.func_path:
                 try:
+                    f.init()
                     f.execute(args, self.server)
                     data = f.answer()
                 except KeyError:

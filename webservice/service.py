@@ -5,6 +5,7 @@ import handler
 import service_func
 import os
 import pickle
+import funcs
 
 class HttpServer(BaseHTTPServer.HTTPServer):
 
@@ -16,10 +17,11 @@ class HttpServer(BaseHTTPServer.HTTPServer):
 
         self.service_func = service_func.default_func([])
         self.functions.append(self.service_func)
-        self.functions.append(service_func.add_team())
-        self.functions.append(service_func.get_all_teams())
-        self.functions.append(service_func.get_all_categories())
-        self.functions.append(service_func.ask_question())
+        self.functions.append(funcs.add_team())
+        self.functions.append(funcs.get_all_teams())
+        self.functions.append(funcs.get_all_categories())
+        self.functions.append(funcs.ask_question())
+        self.functions.append(funcs.answer_question())
         self.service_func.functions = self.functions
         self.teams = []
         self.game_data = None

@@ -16,12 +16,27 @@ def increment_category():
     category_id += 1
     return id
 
+team_id = 0
+
+def increment_team():
+    global team_id
+    id = team_id
+    team_id += 1
+    return id
+
+
 class points_table:
     def __init__(self, points=[200, 400, 600, 800, 1000]):
         self.points = points
 
     def count(self):
         return len(self.points)
+
+class team:
+    def __init__(self, name):
+        self.id = increment_team()
+        self.name = name
+        self.points = 0
 
 class question:
     def __init__(self, question="", rank=0, answer=""):
@@ -36,11 +51,36 @@ class category:
         self.id = increment_category()
         self.name = name
         self.questions = []
+        self.ranks_available = []
 
 class game_data:
     def __init__(self):
         self.categories = []
         self.points_table = points_table()
+        self.current_question = None
+        self.teams = []
+
+    def get_team(self, team_id):
+        for t in self.teams:
+            if t.id == team_id:
+                return t
+
+        return None
+
+    def new_team(self, team_name):
+        t = team(team_name)
+        self.teams.append(t)
+        return t
+
+    def ask_question(self, question, team):
+        self.current_question = question_context(question, team, self.points_table.points[question.rank])
+
+    def valid_answer(self):
+        if self.current_question is not None:
+            _team = self.get_team(self.current_question.team)
+            if _team is not None:
+                _team.points += self.current_question.points
+                self.current_question = None
 
     def get_category(self, cat_id):
         for cat in self.categories:
@@ -48,6 +88,11 @@ class game_data:
                 return cat
 
         return None
+
+    def fill_rank_available(self):
+        for c in self.categories:
+            for i in range(len(self.points_table.points)):
+                c.ranks_available.append(True)
 
     def read_file(self, filepath):
         fp = open(filepath, 'r')
@@ -78,3 +123,11 @@ class game_data:
                 self.points_table.points = []
                 for p in points:
                     self.points_table.points.append(int(p))
+
+        self.fill_rank_available()
+
+class question_context:
+    def __init__(self, question, team, points):
+        self.question = question
+        self.team = team
+        self.points = points
