@@ -1,0 +1,6 @@
+*.pyc
+webservice/*.pyc
+jeopardy/*.pyc
+*.pickle
+.idea/*
+.directory
