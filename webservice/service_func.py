@@ -45,7 +45,7 @@ class default_func(service_func):
         metas = []
         for f in self.functions:
             metas.append(f.get_meta())
-        return {'functions': metas, 'version': 0}
+        return {'functions': metas, 'version': 1}
 
 
 

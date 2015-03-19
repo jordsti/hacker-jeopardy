@@ -3,3 +3,7 @@ from ask_question import ask_question
 from get_all_categories import get_all_categories
 from get_all_teams import get_all_teams
 from answer_question import answer_question
+from test_key import test_key
+from remove_team import remove_team
+from get_points_table import get_points_table
+from get_categories_rank import get_categories_rank

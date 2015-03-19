@@ -17,11 +17,23 @@ class HttpServer(BaseHTTPServer.HTTPServer):
 
         self.service_func = service_func.default_func([])
         self.functions.append(self.service_func)
+        self.functions.append(funcs.test_key())
+
+        # teams functions
         self.functions.append(funcs.add_team())
         self.functions.append(funcs.get_all_teams())
+        self.functions.append(funcs.remove_team())
+
+        # categories
         self.functions.append(funcs.get_all_categories())
+        self.functions.append(funcs.get_points_table())
+        self.functions.append(funcs.get_categories_rank())
+
+        # questions
         self.functions.append(funcs.ask_question())
         self.functions.append(funcs.answer_question())
+
+
         self.service_func.functions = self.functions
         self.teams = []
         self.game_data = None

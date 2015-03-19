@@ -1,0 +1,57 @@
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Hacker Jeopardy Web Interface</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/jeopardy.css" rel="stylesheet">
+  </head>
+  <body>
+    <div class="container">
+      <div class="row" id="server-connection">
+	<div class="col-sm-6 col-sm-offset-3" id="connection-div">
+	  <h3>Hacker-Jeopardy Web Service Connection</h3>
+	  <form id="connection-form">
+	    <div class="form-group">
+	      <label for="server-addr">Address</label>
+	      <input class="form-control" type="text" name="server-addr" id="server-addr" value="http://localhost:8080" />
+	    </div>
+	    <div class="form-group">
+	      <label for="server-key"></label>
+	      <input class="form-control" type="text" name="server-key" id="server-key" value="hacker" />
+	    </div>
+	    <button class="btn btn-primary" type="button" onclick="connectToServer()">Connect</button>
+	  </form>
+	</div>
+      </div>
+      <div class="container" id="teams">
+	<button type="button" class="btn btn-primary" onclick="hideTeams()" id="teams-hide-btn">Hide Teams</button>
+	<div class="col-sm-4 col-sm-offset-4" id="teams-div">
+	  <h3>Teams</h3>
+	  <div id="teams-list">
+	  </div>
+	  <form id="add-team">
+	    <div class="form-group">
+	      <label for="team-name">Team Name</label>
+	      <input type="text" class="form-control" id="team-name" name="team-name" />
+	    </div>
+	    <button class="btn btn-primary" type="button" onclick="addTeam()">Add</button>
+	  </form>
+	</div>
+      </div>
+      <div class="container" id="categories">
+	<div class="row">
+	<!-- Category header -->
+	  <div class="col-sm-3" id="cat_head_0"></div>
+	  <div class="col-sm-3" id="cat_head_1"></div>
+	  <div class="col-sm-3" id="cat_head_2"></div>
+	  <div class="col-sm-3" id="cat_head_3"></div>
+	</div>
+      </div>
+    </div>
+    <script src="js/jquery-1.11.2.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/jeopardy.js"></script>
+  </body>
+</html>

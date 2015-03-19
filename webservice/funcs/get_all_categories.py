@@ -13,5 +13,8 @@ class get_all_categories(service_func):
     def answer(self):
         data = {"categories": []}
         for c in self.cats:
-            data["categories"].append([c.id, c.name])
+            data["categories"].append({
+                "id": c.id,
+                "name": c.name
+            })
         return data
