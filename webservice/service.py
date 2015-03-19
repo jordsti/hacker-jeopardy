@@ -1,4 +1,3 @@
-__author__ = 'jguerin'
 import threading
 import BaseHTTPServer
 import handler
@@ -23,6 +22,7 @@ class HttpServer(BaseHTTPServer.HTTPServer):
         self.functions.append(funcs.add_team())
         self.functions.append(funcs.get_all_teams())
         self.functions.append(funcs.remove_team())
+        self.functions.append(funcs.add_point_to_team())
 
         # categories
         self.functions.append(funcs.get_all_categories())
@@ -32,7 +32,6 @@ class HttpServer(BaseHTTPServer.HTTPServer):
         # questions
         self.functions.append(funcs.ask_question())
         self.functions.append(funcs.answer_question())
-
 
         self.service_func.functions = self.functions
         self.teams = []

@@ -1,4 +1,3 @@
-__author__ = 'jguerin'
 import BaseHTTPServer
 import json
 import service_func

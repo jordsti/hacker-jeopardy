@@ -1,4 +1,3 @@
-__author__ = 'jguerin'
 
 question_id = 0
 

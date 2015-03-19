@@ -1,4 +1,3 @@
-__author__ = 'jguerin'
 from meta_func import meta_func, meta_arg
 
 class func_error(Exception):

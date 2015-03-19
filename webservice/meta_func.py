@@ -1,6 +1,3 @@
-__author__ = 'jguerin'
-
-import json
 
 class meta_arg:
     def __init__(self, name, description, default):
