@@ -23,7 +23,9 @@ class service_func:
         pass
 
     def answer(self):
-        pass
+        data = {}
+        return data
+
 
     def get_meta(self):
         meta = meta_func(self.func_path)

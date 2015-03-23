@@ -8,3 +8,4 @@ from remove_team import remove_team
 from get_points_table import get_points_table
 from get_categories_rank import get_categories_rank
 from add_point_to_team import add_point_to_team
+from start_game import start_game

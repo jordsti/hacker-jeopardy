@@ -33,6 +33,9 @@ class HttpServer(BaseHTTPServer.HTTPServer):
         self.functions.append(funcs.ask_question())
         self.functions.append(funcs.answer_question())
 
+        # game handling
+        self.functions.append(funcs.start_game())
+
         self.service_func.functions = self.functions
         self.teams = []
         self.game_data = None

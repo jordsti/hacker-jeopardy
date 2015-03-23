@@ -53,11 +53,25 @@ class category:
         self.ranks_available = []
 
 class game_data:
+    (TeamsCount) = (4)
     def __init__(self):
         self.categories = []
         self.points_table = points_table()
         self.current_question = None
         self.teams = []
+        self.game_on = False
+
+    def start_game(self):
+
+        if not self.game_on:
+            # checking if the numbers of team is ok
+            if len(self.teams) == self.TeamsCount:
+                print "Starting the game !"
+                self.game_on = True
+            else:
+                print "Only %d teams are registered..." % (len(self.teams))
+        else:
+            print "Game is already started!"
 
     def get_team(self, team_id):
         for t in self.teams:
