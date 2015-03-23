@@ -36,3 +36,4 @@ Jeopardy Game with a Mobile and HTML Front-end for the animator
   - Better game file, game1.txt is only for test purpose at the moment
   - Current Game State saving, in case of a fatal crash
   - Game Interface (PyGame maybe, because GUI Interface with widget will not be revelant)
+  - Game Status (Web service funcs and web interface controls)
