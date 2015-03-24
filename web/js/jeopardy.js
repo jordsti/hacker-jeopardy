@@ -15,9 +15,32 @@ function hideTeams() {
   }
 }
 
+function getGameState() {
+
+    var url = serverAddr + "/game/state"
+    var req = $.ajax({
+        url: url,
+        crossDomain: true,
+        dataType: "json"
+    }).done(function(data){
+
+        var game_on = data.game_on
+        var state = data.state
+
+        if(game_on) {
+            $("#game_on").text("On going")
+        } else {
+            $("#game_on").text("Waiting to start the game")
+            $("#game_on").append('<br /><button type="button" class="btn btn-primary" onclick="startGame();" id="btn-start-game">Start game</button>')
+        }
+
+        $("#game_state").text(data.defs[state])
+    })
+}
+
 function addTeam() {
   teamName = $("#team-name").val()
-  url = serverAddr + "/team/add?key=" + serverKey + "&name=" + teamName
+  var url = serverAddr + "/team/add?key=" + serverKey + "&name=" + teamName
   
   req = $.ajax({
     url: url,
@@ -170,7 +193,7 @@ function connectToServer() {
 	        
 	    loadTeams();
 	    loadCategories();
-	    
+	    getGameState();
 	  } else {
 	    if($("#server-alert").length == 0) {
 		form.prepend('<div id="server-alert" class="alert alert-danger" role="alert">Server key is invalid</div>')

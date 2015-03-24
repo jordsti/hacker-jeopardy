@@ -54,12 +54,20 @@ class category:
 
 class game_data:
     (TeamsCount) = (4)
+    (Waiting, ChooseCategory, QuestionTime, OtherTeam) = (0, 1, 2, 3)  # todo other state to add
+
     def __init__(self):
         self.categories = []
         self.points_table = points_table()
         self.current_question = None
         self.teams = []
         self.game_on = False
+        self.state = self.Waiting
+
+    def get_game_states(self):
+
+        states = ["Waiting", "ChooseCategory", "QuestionTime", "OtherTeam"]
+        return states
 
     def start_game(self):
 
