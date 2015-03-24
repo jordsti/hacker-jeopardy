@@ -38,6 +38,30 @@ function getGameState() {
     })
 }
 
+function startGame() {
+
+    var url = serverAddr + "/game/start?key=" + serverKey
+
+    var req = $.ajax({
+        url: url,
+        crossDomain: true,
+        dataType: "json"
+    }).done(function(data){
+
+        if(data.func_error) {
+            $("#game-status-error").remove()
+
+            $("#game_status").prepend('<div id="game-status-error" class="alert alert-danger" role="alert">'+data.func_error+'</div>')
+        } else {
+
+            $("#game-status-error").remove()
+            $("#btn-start-game").remove()
+            getGameState()
+        }
+    })
+
+}
+
 function addTeam() {
   teamName = $("#team-name").val()
   var url = serverAddr + "/team/add?key=" + serverKey + "&name=" + teamName
@@ -139,21 +163,55 @@ function loadCategories() {
     console.log(data)
     if(data.ranks) {
       for(var i=0; i<data.ranks.length; i++) {
-	var html = '<div class="row" id="row_rank_'+i+'">'
-	
-	for(var j=0; j<cats.length; j++) {
-	  rank_id = "rank_" + j + "_" + i
-	  html += '<div class="col-sm-3 category-rank" id="'+rank_id+'">'+data.ranks[i].points+'</div>'
-	}
-	
-	html += '</div>'
-	$("#categories").append(html)
+        var html = '<div class="row" id="row_rank_'+i+'">'
+
+        for(var j=0; j<cats.length; j++) {
+          rank_id = "rank_" + j + "_" + i
+          html += '<div class="col-sm-3 category-rank" id="'+rank_id+'"><a onclick="chooseCategory('+i+','+j+');">'+data.ranks[i].points+'</a></div>'
+        }
+
+        html += '</div>'
+        $("#categories").append(html)
       }
     }
   })
   
   refreshCategories();
   
+}
+
+function chooseCategory(rank, category) {
+
+    //need to chose for which team
+    //list teams into the div ?
+    var teams_html = ''
+    for(var i=0; i<teams.length; i++) {
+        var team = teams[i]
+        teams_html += '<a onclick="askQuestion('+rank+', '+category+', '+team.id+')">'+team.name+'</a><br />'
+    }
+    $("#rank_"+category+"_"+rank).append('<div id="team-chooser"><h5>Choose a team</h5>'+teams_html+'</div>')
+}
+
+function askQuestion(rank, category, teamId) {
+    var team = teams[teamId]
+    $("#team-chooser").remove()
+
+    var url = serverAddr + "/question/ask?key=" + serverKey + "&team=" + teamId + "&category=" + category + "&rank=" + rank
+
+    var req = $.ajax({
+        url: url,
+        crossDomain: true,
+        dataType: "json"
+    }).done(function(data){
+
+        if(data.func_error) {
+            console.log(data.func_error)
+        } else {
+            $("#rank_"+category+"_"+rank).append('<div id="question_'+category+'_'+rank+'">Question for : '+team.name+'<br /><strong>QUESTION HERE</strong><br />Answer : HERE!<br />Correct | Incorrect</div>')
+        }
+    })
+
+    $("#rank_"+category+"_"+rank).append('<div id="question_'+category+'_'+rank+'">Question for : '+team.name+'<br /><strong>QUESTION HERE</strong><br />Answer : HERE!<br />Correct | Incorrect</div>')
 }
 
 function connectToServer() {
