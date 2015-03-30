@@ -203,15 +203,31 @@ function askQuestion(rank, category, teamId) {
         crossDomain: true,
         dataType: "json"
     }).done(function(data){
-
+        console.log(data)
         if(data.func_error) {
             console.log(data.func_error)
         } else {
-            $("#rank_"+category+"_"+rank).append('<div id="question_'+category+'_'+rank+'">Question for : '+team.name+'<br /><strong>QUESTION HERE</strong><br />Answer : HERE!<br />Correct | Incorrect</div>')
+            $("#rank_"+category+"_"+rank).append('<div id="question_'+category+'_'+rank+'">Question for : '+team.name+'<br /><strong>'+data.question.question+'</strong><br />'+data.question.answer+'<br /><a onclick="answerQuestion(true,'+rank+', '+category+')">Correct</a> | <a onclick="answerQuestion(false,'+rank+', '+category+')">Incorrect</a></div>')
         }
     })
 
-    $("#rank_"+category+"_"+rank).append('<div id="question_'+category+'_'+rank+'">Question for : '+team.name+'<br /><strong>QUESTION HERE</strong><br />Answer : HERE!<br />Correct | Incorrect</div>')
+}
+
+function answerQuestion(result, rank, category) {
+
+    if(result) {
+        var url = serverAddr + "/question/answer?key=" +serverKey + "&valid=" + result
+
+        var req = $.ajax({
+            url: url,
+            crossDomain: true,
+            dataType: "json"
+        }).done(function(data){
+            console.log(data)
+        })
+    } else {
+        //next to choose the next team
+    }
 }
 
 function connectToServer() {

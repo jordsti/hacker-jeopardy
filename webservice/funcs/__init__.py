@@ -10,3 +10,4 @@ from get_categories_rank import get_categories_rank
 from add_point_to_team import add_point_to_team
 from start_game import start_game
 from get_game_state import get_game_state
+from current_question import current_question

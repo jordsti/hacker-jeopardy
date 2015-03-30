@@ -16,6 +16,11 @@ class service_func:
         self.name = ""
         self.args = [] #args must be of type meta_arg
 
+    def check_server_key(self, args, server):
+        key = args["key"]
+        if not key == server.key:
+            raise func_error('Invalid key')
+
     def init(self):
         pass
 

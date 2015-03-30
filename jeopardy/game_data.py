@@ -44,6 +44,7 @@ class question:
         self.rank = rank
         self.answer = answer
         self.asked = False
+        self.responded_by = None
 
 class category:
     def __init__(self, name):
